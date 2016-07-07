@@ -81,14 +81,14 @@
     _adjustsButtonTopInset = YES;
     _disableSelectedSegment = YES;
     _font = [UIFont systemFontOfSize:15.0f];
+
+    _hairline = [UIView new];
+    _hairline.backgroundColor = [UIColor lightGrayColor];
+    [self addSubview:_hairline];
     
     _selectionIndicator = [UIView new];
     _selectionIndicator.backgroundColor = self.tintColor;
     [self addSubview:_selectionIndicator];
-    
-    _hairline = [UIView new];
-    _hairline.backgroundColor = [UIColor lightGrayColor];
-    [self addSubview:_hairline];
     
     _colors = [NSMutableDictionary new];
     _counts = [NSMutableArray array];
@@ -342,9 +342,8 @@
 
 - (CGRect)hairlineRect
 {
-    CGRect frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.5f);
-    frame.origin.y = (self.barPosition > UIBarPositionBottom) ? 0.0f : self.frame.size.height;
-    
+    CGRect frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, self.selectionIndicatorHeight);
+    frame.origin.y = (self.barPosition > UIBarPositionBottom) ? 0.0f : (self.frame.size.height - self.selectionIndicatorHeight);
     return frame;
 }
 
