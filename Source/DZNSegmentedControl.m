@@ -355,7 +355,7 @@
     CGFloat minFontSize = 8.0f;
     
     if (!self.adjustsFontSizeToFitWidth) {
-        return fontSize;
+        return _font.pointSize;
     }
     
     CGFloat buttonWidth = roundf(self.bounds.size.width/self.numberOfSegments);
