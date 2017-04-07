@@ -115,8 +115,6 @@
 {
     [super layoutSubviews];
     
-    [self sizeToFit];
-    
     if ([self buttons].count == 0) {
         _selectedSegmentIndex = -1;
     }
@@ -427,6 +425,7 @@
 {
     _width = width;
     
+    [self sizeToFit];
     [self layoutSubviews];
 }
 
